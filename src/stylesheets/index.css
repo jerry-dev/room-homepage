@@ -7,7 +7,9 @@
     --font-fam-1: "Spartan";
     --font-size-1: 14px;
     --font-size-2: 12px;
+    --font-size-3: 40px;
     --font-height-1: 13px;
+    --font-height-2: 45px;
     --font-weight-1: 600;
 }
 
@@ -36,6 +38,8 @@ body {
     display: grid;
     grid-template-columns: repeat(12, 120px);
     grid-template-rows: 534px 266px;
+    font-family: var(--font-fam-1);
+    font-weight: var(--font-weight-1);
 }
 
 #section-1 {
@@ -63,14 +67,24 @@ body {
 }
 
 #section-1__container ul li {
-    font-family: var(--font-fam-1);
     color: var(--white-1);
     font-size: var(--font-size-2);
-    font-weight: var(--font-weight-1);
     line-height: var(--font-height-1);
 }
 
 #section-2 {
     grid-column: span 5;
     background-color: var(--white-1);
+}
+
+#section-2__container {
+    margin-top: 120px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+#section-2__container h2 {
+    margin-bottom: 22px;
+    font-size: var(--font-size-3);
+    line-height: var(--font-height-2);
 }
