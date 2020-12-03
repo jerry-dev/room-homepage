@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css?family=Spartan");
+
+:root {
+    --white-1: #FFFFFF;
+    --black-1: #000000;
+    --grey-1: #A0A0A0;
+    --font-fam-1: "Spartan";
+    --font-size-1: 14px;
+    --font-size-2: 12px;
+    --font-height-1: 13px;
+    --font-weight-1: 600;
+}
+
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100%;
+}
+
+#app-wrapper {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#homepage {
+    display: grid;
+    grid-template-columns: repeat(12, 120px);
+    grid-template-rows: 534px 266px;
+}
+
+#section-1 {
+    grid-column: span 7;
+    background-image: url("../assets/images/desktop-image-hero-1.jpg");
+}
+
+#section-1__container {
+    display: flex;
+    margin-left: 64px;
+    margin-top: 64px;
+}
+
+#logo  {
+    margin-right: 56px;
+}
+
+#section-1__container ul {
+    display: flex;
+    list-style: none;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 243px;
+    height: 13px;
+}
+
+#section-1__container ul li {
+    font-family: var(--font-fam-1);
+    color: var(--white-1);
+    font-size: var(--font-size-2);
+    font-weight: var(--font-weight-1);
+    line-height: var(--font-height-1);
+}
+
+#section-2 {
+    grid-column: span 5;
+    background-color: var(--white-1);
+}
