@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Room Homepage</title>
+    </head>
+    <body>
+        <style>
+            @import url("https://fonts.googleapis.com/css?family=Spartan");
+
+        :root {
+            --white-1: #FFFFFF;
+            --black-1: #000000;
+            --grey-1: #A0A0A0;
+            --font-fam-1: "Spartan";
+            --font-size-1: 14px;
+            --font-size-2: 12px;
+            --font-size-3: 40px;
+            --font-size-4: 28px;
+            --font-height-1: 13px;
+            --font-height-2: 45px;
+            --font-height-3: 20px;
+            --font-height-4: 44.8px;
+            --font-height-5: 16px;
+            --font-height-6: 22px;
+            --font-height-7: 31.36px;
+            --font-weight-1: 600;
+            --font-weight-2: 500;
+            --font-weight-3: 700;
+        }
+
+        html {
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        *, *::before, *::after {
+            box-sizing: inherit;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100%;
+        }
+
+        #app-wrapper {
+            max-width: 1440px;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: var(--font-fam-1);
+            font-weight: var(--font-weight-1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #app-canvas{
+            width: 100%;
+            height: 100%;
+        }
+
+        #mobile__nav {
+            z-index: 55;
+            position: absolute;
+            padding-top: 50px;
+            padding-left: 108px;
+            padding-right: 24px;
+            background-color: var(--white-1);
+            height: 110px;
+            width: 100%;
+            top: -110px;
+            transition-property: transform;
+            transition-duration: .3s;
+            transition-timing-function: ease;
+        }
+
+        #app-canvas[data-menu="off-screen"] > #mobile__nav {
+            transform: translate3d(0);
+        }
+
+        #app-canvas[data-menu="on-screen"] > #mobile__nav {
+            transform: translate3d(0, 110px, 0);
+        }
+
+        #mobile__nav ul {
+            display: flex;
+            flex-direction: row;
+            font-size: var(--font-size-2);
+            justify-content: space-around;
+            width: 243px;
+        }
+
+        #mobile__nav ul li {
+            list-style: none;
+        }
+
+        #mobile__nav ul li a {
+            color: var(--black-1);
+            text-decoration: none;
+        }
+
+        #row-1 {
+            display: grid;
+            grid-template-columns: 840px 600px;
+            grid-template-rows: 534px;
+        }
+
+        #section-1 {
+            grid-column: span 1;
+            background-image: url("./images/desktop-image-hero-1.jpg");
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        #section-1__container {
+            display: inline-flex;
+            margin-left: 64px;
+            margin-top: 64px;
+        }
+
+        #menu-toggle {
+            display: none;
+        }
+
+        #logo  {
+            margin-right: 56px;
+            animation-name: listLoad;
+            animation-duration: 0.8s;
+            animation-iteration-count: 1;
+        }
+
+        #section-1__container nav {
+            animation-name: listLoad;
+            animation-duration: 0.8s;
+            animation-iteration-count: 1;
+        }
+
+        #section-1__container ul {
+            display: flex;
+            list-style: none;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 243px;
+            height: 13px;
+        }
+
+        #section-1__container ul li {
+            color: var(--white-1);
+            font-size: var(--font-size-2);
+            line-height: var(--font-height-1);
+        }
+
+        #section-1__container ul li a {
+            color: var(--white-1);
+            text-decoration: none;
+            position: relative;
+        }
+
+        #section-1__container ul li a:hover:before {
+            position: absolute;
+            content: "";
+            height: 2px;
+            width: 100%;
+            transform: scaleX(0.5);
+            bottom: -8px;
+            background-color: var(--white-1);
+            animation-name: borderAnimate;
+            animation-duration: 0.2s;
+            animation-iteration-count: 1;
+        }
+
+        #section-2 {
+            grid-column: span 1;
+            background-color: var(--white-1);
+            position: relative;
+        }
+
+        #section-2__container {
+            margin-top: 120px;
+            margin-left: 100px;
+            margin-right: 100px;
+            max-width: 400px;
+            height: 261px;
+        }
+
+        #section-2__container h2 {
+            color: var(--black-1);
+            margin-bottom: 22px;
+            font-size: var(--font-size-3);
+            line-height: var(--font-height-4);
+            letter-spacing: -1.66667px;
+            animation-name: headerLoad;
+            animation-duration: 0.8s;
+            animation-iteration-count: 1;
+        }
+
+        #section-2__container p {
+            color: var(--grey-1);
+            font-size: var(--font-size-2);
+            line-height: var(--font-height-3);
+            font-weight: var(--font-weight-2);
+            letter-spacing: -0.25px;
+            margin-bottom: 32px;
+            animation-name: paragraphLoad;
+            animation-duration: 0.8s;
+            animation-iteration-count: 1;
+        }
+
+        #cta_container a {
+            text-decoration: none;
+        }
+
+        #cta_container span {
+            font-weight: var(--font-weight-2);
+            font-size: var(--font-size-2);
+            line-height: var(--font-height-5);
+            letter-spacing: 10px;
+            margin-right: 33px;
+            color: var(--grey-1);
+        }
+
+        #cta_container img {
+            margin: 0;
+        }
+
+        #carousel_buttons {
+            z-index: 55;
+            position: absolute;
+            background-color: var(--black-1);
+            display: inline-flex;
+            bottom: 0;
+            right: 0;
+            transform: translateX(160px);
+        }
+
+        #carousel_buttons > * {
+            padding-top: 28px;
+            padding-bottom: 28px;
+            padding-left: 33px;
+            padding-right: 33px;
+            cursor: pointer;
+        }
+
+        #carousel_buttons > *:hover {
+            background-color: var(--grey-1);
+        }
+
+        #row-2 {
+            display: grid;
+            grid-template-columns: 420px 580px 440px;
+            grid-template-rows: 266px 16px;
+        }
+
+        #section-3 {
+            grid-column: span 1;
+            background-image: url("./images/image-about-dark.jpg");
+        }
+
+        #section-4__container {
+            margin-top: 68px;
+            margin-left: 48px;
+            margin-right: 48px;
+            margin-bottom: 67px;
+            max-width: 484px;
+            height: 131px;
+            animation-name: containerLoad;
+            animation-duration: 0.8s;
+            animation-iteration-count: 1;
+        }
+
+        #section-4__container h3 {
+            font-size: var(--font-size-2);
+            font-weight: var(--font-weight-3);
+            line-height: var(--font-height-6);
+            margin-bottom: 9px;
+            letter-spacing: 5px;
+        }
+
+        #section-4__container p {
+            color: var(--grey-1);
+            font-size: var(--font-size-2);
+            line-height: var(--font-height-3);
+            font-weight: var(--font-weight-2);
+            letter-spacing: -0.25px;
+        }
+
+        #section-5 {
+            grid-column: span 1;
+            background-image: url("./images/image-about-light.jpg");
+        }
+
+        #author {
+            position: relative;
+            color: var(--grey-1);
+            font-size: var(--font-size-2);
+            font-weight: var(--font-weight-3);
+            line-height: var(--font-height-6);
+            letter-spacing: 5px;
+        }
+
+        #developed {
+            position: absolute;
+            animation-name: devLoad;
+            animation-duration: 0.8s;
+            animation-iteration-count: 1;
+        }
+
+        #name {
+            position: absolute;
+            animation-name: nameLoad;
+            animation-duration: 0.8s;
+            animation-iteration-count: 1;
+            margin-left: 155px;
+        }
+
+        #left-btn {
+            animation-name: leftArrowLoad;
+            animation-duration: 0.8s;
+            animation-iteration-count: 1;
+        }
+
+        #right-btn {
+            animation-name: rightArrowLoad;
+            animation-duration: 0.8s;
+            animation-iteration-count: 1;
+        }
+
+        @media (max-width: 375px) {
+            #app-wrapper {
+                max-width: 375px;
+            }
+
+            #menu-toggle {
+                display: inline;
+                margin-right: 113px;
+                position: sticky;
+                z-index: 99;
+                cursor: pointer;
+            }
+
+            #row-1 {
+                grid-template-columns: 375px;
+                grid-template-rows: 360px 400px;
+            }
+
+            #section-1 {
+                background-image: url("./images/mobile-image-hero-1.jpg");
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+
+            #section-1__container {
+                margin-left: 24px;
+                margin-top: 48px;
+            }
+
+            #section-1__container ul {
+                display: none;
+            }
+
+            #carousel_buttons {
+                transform: translateX(0);
+            }
+
+            #carousel_buttons > * {
+                padding-top: 19.6px;
+                padding-bottom: 19.6px;
+                padding-left: 23.8px;
+                padding-right: 23.8px;
+                cursor: pointer;
+            }
+
+            #row-2 {
+                grid-template-columns: 375px;
+                grid-template-rows: 238px 310px 227px 16px;
+            }
+
+            #section-2__container {
+                margin-top: 62px;
+                margin-left: 32px;
+                margin-right: auto;
+                max-width: 310px;
+                height: 266px;
+            }
+
+            #section-2__container h2 {
+                font-size: var(--font-size-4);
+                line-height: var(--font-height-7);
+                letter-spacing: -1.66667px;
+            }
+
+            #section-2__container p {
+                margin-bottom: 68px;
+                margin-bottom: 45px;
+            }
+
+            #cta_container span {
+                color: var(--black-1);
+            }
+
+            #section-3 {
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+
+            #section-4__container {
+                margin-top: 55px;
+                margin-left: 32px;
+                margin-right: 32px;
+                max-width: 309px;
+                margin-bottom: 56px;
+                height: 191px;
+            }
+
+            #section-5 {
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+
+            #author {
+                margin-left: 32px;
+            }
+        }
+
+        @keyframes leftArrowLoad {
+            0% {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes rightArrowLoad {
+            0% {
+                transform: translateX(50px);
+            }
+
+            100% {
+                transform: translateX(0px);
+            }
+        }
+
+        @keyframes listLoad {
+            0% {
+                transform: translateY(-200px);
+                opacity: 0;
+            } 100% {
+                transform: translateY(0px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes borderAnimate {
+            0% {
+                transform: scaleX(0);
+            } 100% {
+                transform: scaleX(0.5);
+            }
+        }
+
+        @keyframes headerLoad {
+            0% {
+                transform: translateX(-200px);
+                opacity: 0;
+            } 100% {
+                transform: translateX(0px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes paragraphLoad {
+            0% {
+                transform: translateX(200px);
+                opacity: 0;
+            } 100% {
+                transform: translateX(0px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes containerLoad {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            } 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes devLoad {
+            0% {
+                transform: translateX(-200px);
+                opacity: 0;
+            } 100% {
+                transform: translateX(0px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes nameLoad {
+            0% {
+                transform: translateX(200px);
+                opacity: 0;
+            } 100% {
+                transform: translateX(0px);
+                opacity: 1;
+            }
+        }
+        </style>
+        <div id="app-wrapper">
+            <div id="app-canvas" data-menu="off-screen">
+                <nav id="mobile__nav">
+                    <ul>
+                        <li><a href="#0111">home</a></li>
+                        <li><a href="#0202">shop</a></li>
+                        <li><a href="#0333">about</a></li>
+                        <li><a href="#0444">contact</a></li>
+                    </ul>
+                </nav>
+
+                <div id="row-1">
+                    <section id="section-1">
+                        <div id="section-1__container">
+                            <img src="./images/icon-hamburger.svg" id="menu-toggle">
+                            <img src="./images/logo.svg" id="logo">
+                            <nav>
+                                <ul>
+                                    <li><a href="#0111">home</a></li>
+                                    <li><a href="#0202">shop</a></li>
+                                    <li><a href="#0333">about</a></li>
+                                    <li><a href="#0444">contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div id="carousel_buttons">
+                            <img id="left-btn" src="./images/icon-angle-left.svg">
+                            <img id="right-btn" src="./images/icon-angle-right.svg">
+                        </div>
+                    </section>
+                    <section id="section-2">
+                        <div id="section-2__container">
+                            <h2>Discover innovative ways to decorate</h2>
+                            <p>
+                                We provide unmatched quality, comfort, and style for
+                                property owners across the country. Our experts combine
+                                form and function in bringing your vision to life.
+                                Create a room in your own style with our collection and
+                                make your property a reflection of you and what you love.
+                            </p>
+                            <div id="cta_container">
+                                <a href="#0555">
+                                    <span>SHOP NOW</span>
+                                    <img src="./images/icon-arrow.svg">
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <div id="row-2">
+                    <section id="section-3"></section>
+                    <section id="section-4">
+                        <div id="section-4__container">
+                            <h3>ABOUT OUR FURNITURE</h3>
+                                <p>
+                                    Our multifunctional collection blends design and function to suit
+                                    your individual taste. Make each room unique, or pick a cohesive
+                                    theme that best express your interests and what inspires you. Find
+                                    the furniture pieces you need, from traditional to contemporary
+                                    styles or anything in between. Product specialists are available
+                                    to help you create your dream space. 
+                                </p>
+                        </div>
+                    </section>
+                    <section id="section-5"></section>
+                    <div id="author">
+                        <span id="developed">Developed By</span><span id="name">Jerry Dormetus</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            const carouselData = [
+            {
+                title: `Discover innovative ways to decorate`,
+                paragraph: `We provide unmatched quality, comfort, and style for\
+                property owners across the country. Our experts combine\
+                form and function in bringing your vision to life.\
+                Create a room in your own style with our collection and\
+                make your property a reflection of you and what you love.`,
+                images: {
+                    desktop: `./images/desktop-image-hero-1.jpg`,
+                    mobile: `./images/mobile-image-hero-1.jpg`
+                }
+            },
+            {
+                title: `We are available all across the globe`,
+                paragraph: `With stores all over the world, it's easy for you\
+                to find furniture for your home or place of business. Locally,\
+                we’re in most major cities throughout the country. Find the\
+                branch nearest you using our store locator. Any questions?\
+                Don't hesitate to contact us today.`,
+                images: {
+                    desktop: `./images/desktop-image-hero-2.jpg`,
+                    mobile: `./images/mobile-image-hero-2.jpg`
+                }
+            },
+            {
+                title: `Manufactured with the best materials`,
+                paragraph: `Our modern furniture store provide a high level\
+                of quality. Our company has invested in advanced technology\
+                to ensure that every product is made as perfect and as\
+                consistent as possible. With three decades of experience in\
+                this industry, we understand what customers want for their\
+                home and office.`,
+                images: {
+                    desktop: `./images/desktop-image-hero-3.jpg`,
+                    mobile: `./images/mobile-image-hero-3.jpg`
+                }
+            }
+        ];
+
+        window.addEventListener('resize', () => {
+            if (document.body.clientWidth > "375") {
+                document.querySelector("#section-1").style.backgroundImage = `url(${carouselData[0].images.desktop})`;
+                document.querySelector("#section-2__container h2").innerText = carouselData[0].title;
+                document.querySelector("#section-2__container p").innerText = carouselData[0].paragraph;
+            } else {
+                document.querySelector("#section-1").style.backgroundImage = `url(${carouselData[0].images.mobile})`;
+                document.querySelector("#section-2__container h2").innerText = carouselData[0].title;
+                document.querySelector("#section-2__container p").innerText = carouselData[0].paragraph;
+            }
+        })
+
+        const heroHandler = (i) => {
+            let imageSource;
+            if (document.body.clientWidth <= "375") {
+                imageSource = carouselData[i].images.mobile;
+            } else {
+                imageSource = carouselData[i].images.desktop;
+            }
+
+            const title = carouselData[i].title;
+            const paragraph = carouselData[i].paragraph;
+            document.querySelector("#section-1").style.backgroundImage = `url(${imageSource})`;
+            document.querySelector("#section-2__container h2").innerText = title;
+            document.querySelector("#section-2__container p").innerText = paragraph;
+        }
+
+        let index = 0;
+
+        document.getElementById("carousel_buttons").addEventListener('click', (event) => {
+            if (event.target.id === "left-btn") {
+                if (index === 0) {
+                    index = carouselData.length-1;
+                    return heroHandler(index);
+                } else {
+                    index--;
+                    return heroHandler(index);
+                }
+            }
+
+            if (event.target.id === "right-btn") {
+                if (index === carouselData.length-1) {
+                    index = 0;
+                    return heroHandler(index);
+                } else {
+                    index++;
+                    return heroHandler(index);
+                }
+            }
+        });
+
+        const menuManager = () => {
+            if (document.getElementById("app-canvas").dataset.menu === "off-screen") {
+                document.getElementById("app-canvas").dataset.menu = "on-screen";
+                document.getElementById("menu-toggle").src = "./images/icon-close.svg";
+            } else {
+                document.getElementById("app-canvas").dataset.menu = "off-screen";
+                document.getElementById("menu-toggle").src = "./images/icon-hamburger.svg";
+            }
+        }
+
+        document.getElementById("menu-toggle").addEventListener('click', (event) => {
+            if (document.body.clientWidth <= "375") {
+                menuManager();
+            }
+        });
+        </script>
+    </body>
+</html>
