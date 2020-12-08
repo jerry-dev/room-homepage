@@ -627,7 +627,7 @@
         ];
 
         window.addEventListener('resize', () => {
-            if (document.body.clientWidth > "375") {
+            if (document.body.clientWidth > "576") {
                 document.querySelector("#section-1").style.backgroundImage = `url(${carouselData[0].images.desktop})`;
                 document.querySelector("#section-2__container h2").innerText = carouselData[0].title;
                 document.querySelector("#section-2__container p").innerText = carouselData[0].paragraph;
