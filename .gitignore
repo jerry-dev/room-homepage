@@ -1,1 +1,4 @@
 src/stylesheets/development.css
+
+# Local Netlify folder
+.netlify
