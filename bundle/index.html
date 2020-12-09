@@ -231,7 +231,7 @@
             display: inline-flex;
             bottom: 0;
             right: 0;
-            transform: translateX(160px);
+            /* transform: translateX(160px); */
         }
 
         #carousel_buttons > * {
@@ -360,7 +360,7 @@
             }
 
             #carousel_buttons {
-                transform: translateX(0);
+                /* transform: translateX(0); */
             }
 
             #carousel_buttons > * {
@@ -625,6 +625,13 @@
                 }
             }
         ];
+
+        
+        window.addEventListener('load', () => {
+            if (document.body.clientWidth > "576") {
+                document.querySelector("#section-1").style.backgroundImage = `url(${carouselData[0].images.desktop})`;
+            }
+        });
 
         window.addEventListener('resize', () => {
             if (document.body.clientWidth > "576") {
