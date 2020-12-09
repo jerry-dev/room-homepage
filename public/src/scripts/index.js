@@ -1,7 +1,6 @@
 import carouselData from './carouselData.js';
 
 window.addEventListener('load', () => {
-    console.log(`JavaScript loaded`);
     if (document.body.clientWidth > "576") {
         document.querySelector("#section-1").style.backgroundImage = `url(${carouselData[0].images.desktop})`;
     }

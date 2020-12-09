@@ -1,4 +1,4 @@
-src/stylesheets/development.css
+public/src/stylesheets/development.css
 
 # Local Netlify folder
 .netlify
