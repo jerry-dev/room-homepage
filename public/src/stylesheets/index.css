@@ -107,7 +107,7 @@ body {
     grid-column: span 1;
     background-image: url("../assets/images/desktop-image-hero-1.jpg");
     background-position: center;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     position: relative;
 }
