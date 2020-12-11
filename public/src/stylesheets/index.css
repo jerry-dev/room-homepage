@@ -351,7 +351,7 @@ body {
 
     #section-1 {
         background-image: url("../assets/images/mobile-image-hero-1.jpg");
-        background-size: cover;
+        background-size: contain;
         background-repeat: no-repeat;
         padding-top: 48px;
         padding-left: 24px;
@@ -384,13 +384,10 @@ body {
     }
 
     #section-2 {
-        /* Testing*/
         padding-top: 72px;
         padding-bottom: 72px;
         padding-left: 32px;
         padding-right: 32px;
-        /* max-width: 310px; */
-        /* height: 266px; */
     }
 
     #section-2__container {
