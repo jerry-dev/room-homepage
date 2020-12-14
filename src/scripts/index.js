@@ -72,3 +72,4 @@ document.getElementById("menu-toggle").addEventListener('click', (event) => {
         menuManager();
     }
 });
+

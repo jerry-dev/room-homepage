@@ -170,6 +170,7 @@ body {
     padding-top: min(22.47%, 120px);
     padding-left: min(16.67%, 100px);
     padding-right: min(16.67%, 100px);
+    padding-bottom: min(02.55%, 153px);
 }
 
 #section-2__container h2 {
@@ -193,6 +194,10 @@ body {
     animation-name: paragraphLoad;
     animation-duration: 0.8s;
     animation-iteration-count: 1;
+}
+
+#cta_container {
+    cursor: pointer;
 }
 
 #cta_container a {
@@ -228,6 +233,7 @@ body {
     padding-left: 33px;
     padding-right: 33px;
     cursor: pointer;
+    position: relative;
 }
 
 #carousel_buttons > *:hover {
