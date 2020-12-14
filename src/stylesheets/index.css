@@ -93,7 +93,7 @@ body {
 
 #row-1 {
     display: grid;
-    grid-template-columns: 840px 600px;
+    grid-template-columns: minmax(420px, 840px) minmax(300px, 600px);
     grid-template-rows: 534px;
 }
 
@@ -101,6 +101,7 @@ body {
     grid-column: span 1;
     background-image: url("../assets/images/desktop-image-hero-1.jpg");
     background-position: center;
+    background-size: cover;
     background-repeat: no-repeat;
     position: relative;
 }
@@ -235,7 +236,7 @@ body {
 
 #row-2 {
     display: grid;
-    grid-template-columns: 420px 580px 440px;
+    grid-template-columns: minmax(210px, 420px) minmax(290px, 580px) minmax(220px, 440px);
     grid-template-rows: 266px 16px;
 }
 
@@ -321,9 +322,9 @@ body {
     animation-iteration-count: 1;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 767.98px) {
     #app-wrapper {
-        max-width: 991px;
+        max-width: 767.98px;
     }
 
     #menu-toggle {
@@ -335,14 +336,12 @@ body {
     }
 
     #row-1 {
-        grid-template-columns: minmax(376px, 991px);
+        grid-template-columns: minmax(376px, 767.98px);
         grid-template-rows: 360px 400px;
     }
 
     #section-1 {
         background-image: url("../assets/images/mobile-image-hero-1.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
     }
 
     #section-1__container {
@@ -367,7 +366,7 @@ body {
     }
 
     #row-2 {
-        grid-template-columns: minmax(376px, 991px);
+        grid-template-columns: minmax(376px, 767.98px);
         grid-template-rows: 238px 310px 227px 16px;
     }
 
