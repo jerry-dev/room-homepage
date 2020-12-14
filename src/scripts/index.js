@@ -1,13 +1,13 @@
 import carouselData from './carouselData.js';
 
 window.addEventListener('load', () => {
-    if (document.body.clientWidth > "576") {
+    if (document.body.clientWidth > "768") {
         document.querySelector("#section-1").style.backgroundImage = `url(${carouselData[0].images.desktop})`;
     }
 });
 
 window.addEventListener('resize', () => {
-    if (document.body.clientWidth > "576") {
+    if (document.body.clientWidth > "768") {
         document.querySelector("#section-1").style.backgroundImage = `url(${carouselData[0].images.desktop})`;
         document.querySelector("#section-2__container h2").innerText = carouselData[0].title;
         document.querySelector("#section-2__container p").innerText = carouselData[0].paragraph;
@@ -20,7 +20,7 @@ window.addEventListener('resize', () => {
 
 const heroHandler = (i) => {
     let imageSource;
-    if (document.body.clientWidth <= "576") {
+    if (document.body.clientWidth <= "768") {
         imageSource = carouselData[i].images.mobile;
     } else {
         imageSource = carouselData[i].images.desktop;
@@ -68,7 +68,7 @@ const menuManager = () => {
 }
 
 document.getElementById("menu-toggle").addEventListener('click', (event) => {
-    if (document.body.clientWidth <= "576") {
+    if (document.body.clientWidth <= "768") {
         menuManager();
     }
 });

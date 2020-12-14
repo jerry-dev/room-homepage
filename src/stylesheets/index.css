@@ -100,6 +100,7 @@ body {
 #section-1 {
     grid-column: span 1;
     background-image: url("../assets/images/desktop-image-hero-1.jpg");
+    background-position: center;
     background-repeat: no-repeat;
     position: relative;
 }
@@ -165,14 +166,9 @@ body {
     grid-column: span 1;
     background-color: var(--white-1);
     position: relative;
-}
-
-#section-2__container {
-    margin-top: 120px;
-    margin-left: 100px;
-    margin-right: 100px;
-    max-width: 400px;
-    height: 261px;
+    padding-top: clamp(60px, 2vw, 120px);
+    padding-left: clamp(50px, 2vw, 100px);
+    padding-right: clamp(50px, 2vw, 100px);
 }
 
 #section-2__container h2 {
@@ -243,18 +239,24 @@ body {
     grid-template-rows: 266px 16px;
 }
 
+
 #section-3 {
     grid-column: span 1;
     background-image: url("../assets/images/image-about-dark.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+/* Here */
+#section-4 {
+    padding-top: clamp(55px, 4rem, 68px);
+    padding-left: clamp(32px, 3rem, 48px);
+    padding-right: clamp(32px, 3rem, 48px);
+    padding-bottom: clamp(56px, 4rem, 67px);
 }
 
 #section-4__container {
-    margin-top: 68px;
-    margin-left: 48px;
-    margin-right: 48px;
-    margin-bottom: 67px;
-    max-width: 484px;
-    height: 131px;
     animation-name: containerLoad;
     animation-duration: 0.8s;
     animation-iteration-count: 1;
@@ -279,6 +281,9 @@ body {
 #section-5 {
     grid-column: span 1;
     background-image: url("../assets/images/image-about-light.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
 }
 
 #author {
@@ -317,9 +322,9 @@ body {
     animation-iteration-count: 1;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 768px) {
     #app-wrapper {
-        max-width: 375px;
+        max-width: 768px;
     }
 
     #menu-toggle {
@@ -331,7 +336,7 @@ body {
     }
 
     #row-1 {
-        grid-template-columns: 375px;
+        grid-template-columns: minmax(376px, 768px);
         grid-template-rows: 360px 400px;
     }
 
@@ -363,16 +368,8 @@ body {
     }
 
     #row-2 {
-        grid-template-columns: 375px;
+        grid-template-columns: minmax(376px, 768px);
         grid-template-rows: 238px 310px 227px 16px;
-    }
-
-    #section-2__container {
-        margin-top: 62px;
-        margin-left: 32px;
-        margin-right: auto;
-        max-width: 310px;
-        height: 266px;
     }
 
     #section-2__container h2 {
@@ -391,22 +388,7 @@ body {
     }
 
     #section-3 {
-        background-size: contain;
-        background-repeat: no-repeat;
-    }
-
-    #section-4__container {
-        margin-top: 55px;
-        margin-left: 32px;
-        margin-right: 32px;
-        max-width: 309px;
-        margin-bottom: 56px;
-        height: 191px;
-    }
-
-    #section-5 {
-        background-size: contain;
-        background-repeat: no-repeat;
+        background-size: cover;
     }
 
     #author {

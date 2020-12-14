@@ -34,6 +34,7 @@ html {
 
 body {
     min-height: 100%;
+    
 }
 
 #app-wrapper {
@@ -333,7 +334,7 @@ body {
 
 @media (max-width: 576px) {
     #app-wrapper {
-        max-width: 375px;
+        max-width: clamp(375px, 576px);
     }
 
     #menu-toggle {
@@ -346,6 +347,7 @@ body {
 
     #row-1 {
         grid-template-columns: 375px;
+        grid-template-columns: minmax(375px, 576px);
         grid-template-rows: 360px 400px;
     }
 
@@ -380,6 +382,7 @@ body {
 
     #row-2 {
         grid-template-columns: 375px;
+        grid-template-columns: minmax(375px, 576px);
         grid-template-rows: 238px 310px 227px 16px;
     }
 
