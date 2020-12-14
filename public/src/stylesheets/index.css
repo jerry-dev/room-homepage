@@ -248,7 +248,6 @@ body {
     position: relative;
 }
 
-/* Here */
 #section-4 {
     padding-top: clamp(55px, 4rem, 68px);
     padding-left: clamp(32px, 3rem, 48px);
@@ -322,9 +321,9 @@ body {
     animation-iteration-count: 1;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
     #app-wrapper {
-        max-width: 768px;
+        max-width: 991px;
     }
 
     #menu-toggle {
@@ -336,7 +335,7 @@ body {
     }
 
     #row-1 {
-        grid-template-columns: minmax(376px, 768px);
+        grid-template-columns: minmax(376px, 991px);
         grid-template-rows: 360px 400px;
     }
 
@@ -368,7 +367,7 @@ body {
     }
 
     #row-2 {
-        grid-template-columns: minmax(376px, 768px);
+        grid-template-columns: minmax(376px, 991px);
         grid-template-rows: 238px 310px 227px 16px;
     }
 
