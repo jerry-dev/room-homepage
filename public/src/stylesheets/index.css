@@ -322,7 +322,7 @@ body {
     animation-iteration-count: 1;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
     #app-wrapper {
         max-width: 768px;
     }
